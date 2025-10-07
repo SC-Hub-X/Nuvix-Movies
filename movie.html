@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuvix Movie Player</title>
+  <link rel="stylesheet" href="css/style.css">   <!-- Common styles -->
+  <link rel="stylesheet" href="css/movie.css">   <!-- Movie page specific -->
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Nuvix</div>
+    <div class="search-box">
+      <input type="text" placeholder="Search movies..." onfocus="alert('Use Home Page Search')">
+    </div>
+  </header>
+
+  <!-- Movie Player Section -->
+  <main class="movie-player-container">
+    <div id="movieTitle" class="movie-title"></div>
+    <iframe id="youtubePlayer" width="100%" height="500" 
+      title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    <div id="movieDescription" class="movie-description"></div>
+    <button class="btn-back" onclick="window.location='index.html'">⬅ Back to Home</button>
+  </main>
+
+  <script>
+    // Get YouTube video id from URL query
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoId = urlParams.get('youtube');
+
+    // Movie data for title & description
+    const movieData = {
+      "TcMBFSGVi1c": {title:"Avengers: Endgame", description:"After the devastating events of Infinity War, the Avengers assemble once more to reverse Thanos' actions."},
+      "2AUmvWm5ZDQ": {title:"John Wick", description:"An ex-hitman comes out of retirement to track down the gangsters that killed his dog."},
+      "h1sAtmXf9sM": {title:"The Mask", description:"A bank clerk discovers a magical mask that transforms him into a manic superhero."},
+      "ONHBaC-pfsk": {title:"Deadpool", description:"A fast-talking mercenary with a morbid sense of humor gains superpowers."},
+      "xKJmEC5ieOk": {title:"IT", description:"A group of kids face their fears to defeat a shape-shifting evil clown."},
+      "k10ETZ41q5o": {title:"Conjuring", description:"Paranormal investigators help a family terrorized by a dark presence."}
+    };
+
+    if(videoId && movieData[videoId]){
+      document.getElementById('youtubePlayer').src = `https://www.youtube.com/embed/${videoId}`;
+      document.getElementById('movieTitle').innerText = movieData[videoId].title;
+      document.getElementById('movieDescription').innerText = movieData[videoId].description;
+    } else {
+      document.getElementById('youtubePlayer').src = "";
+      document.getElementById('movieTitle').innerText = "Movie not found";
+      document.getElementById('movieDescription').innerText = "Invalid video ID or missing data.";
+    }
+  </script>
+
+</body>
+</html>

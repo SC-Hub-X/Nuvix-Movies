@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuvix</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Nuvix</div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search movies...">
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <img src="images/avengers.jpg" alt="Featured Movie" class="hero-img">
+    <div class="hero-text">
+      <h1>Avengers: Endgame</h1>
+      <p>Experience cinematic masterpieces in full HD!</p>
+      <a href="movie.html?youtube=TcMBFSGVi1c" class="btn-play">▶ Play Now</a>
+    </div>
+  </section>
+
+  <!-- Movie Rows -->
+  <main>
+    <section class="movie-row">
+      <h2>Action</h2>
+      <div class="movie-cards" id="actionRow"></div>
+    </section>
+
+    <section class="movie-row">
+      <h2>Comedy</h2>
+      <div class="movie-cards" id="comedyRow"></div>
+    </section>
+
+    <section class="movie-row">
+      <h2>Horror</h2>
+      <div class="movie-cards" id="horrorRow"></div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Nuvix | Built with ❤️ by Sadew Chamathsara
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
